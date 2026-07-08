@@ -65,14 +65,4 @@ counters.forEach((counter) => countersObserver.observe(counter));
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const button = contactForm.querySelector('button');
-    if (button) {
-      button.textContent = 'Message Sent';
-      button.disabled = true;
-    }
-  });
-}
+

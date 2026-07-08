@@ -476,7 +476,8 @@
                 Download Resume
               </a>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" name="contact" method="POST" data-netlify="true" action="/#contact">
+              <input type="hidden" name="form-name" value="contact" />
               <label>
                 <span>Name</span>
                 <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
