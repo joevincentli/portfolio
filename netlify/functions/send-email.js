@@ -1,7 +1,7 @@
 const { Resend } = require('resend');
 
 let resend;
-const recipientEmail = process.env.TO_EMAIL || process.env.RECIPIENT_EMAIL;
+const recipientEmail = process.env.TO_EMAIL || process.env.RECIPIENT_EMAIL || 'lijoevince@gmail.com';
 const fromEmail = process.env.RESEND_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>';
 
 function getResendClient() {
@@ -128,8 +128,18 @@ exports.handler = async function handler(event) {
     };
   }
 
+  const resendClient = getResendClient();
+
+  if (!resendClient) {
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ success: false, message: 'Email service is not configured.' })
+    };
+  }
+
   try {
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await resendClient.emails.send({
       from: fromEmail,
       to: [recipientEmail],
       replyTo: cleanPayload.email,
