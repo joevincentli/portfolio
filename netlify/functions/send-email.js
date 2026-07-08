@@ -1,7 +1,7 @@
 const { Resend } = require('resend');
 
 let resend;
-const recipientEmail = process.env.TO_EMAIL || process.env.RECIPIENT_EMAIL || 'lijoevince@gmail.com';
+const recipientEmail = 'lijoevince@gmail.com';
 const fromEmail = process.env.RESEND_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>';
 
 function getResendClient() {
