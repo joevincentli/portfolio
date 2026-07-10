@@ -185,4 +185,44 @@ if (form) {
   });
 }
 
+// Typing animation for hero code snippet
+const typingElement = document.getElementById('typing-text');
+const messages = [
+  "npm run build:portfolio",
+  "git commit -m 'Initial commit'",
+  "deploy --prod",
+  "build reliable business systems"
+];
+let messageIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
+function type() {
+  if (!typingElement) return;
+  
+  const currentMessage = messages[messageIndex];
+  
+  if (isDeleting) {
+    typingElement.textContent = currentMessage.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typingElement.textContent = currentMessage.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let speed = isDeleting ? 50 : 100;
+
+  if (!isDeleting && charIndex === currentMessage.length) {
+    speed = 2000; // Pause at end
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    messageIndex = (messageIndex + 1) % messages.length;
+    speed = 500;
+  }
+
+  setTimeout(type, speed);
+}
+
+// Start typing animation when page loads
+window.addEventListener('load', type);

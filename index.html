@@ -83,10 +83,18 @@
             <div class="terminal-bar">
               <span></span><span></span><span></span>
             </div>
-            <img src="assets/code-illustration.svg" alt="Programming illustration" />
-            <div class="code-snippet">
+            <div class="code-content" style="font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.85rem; line-height: 1.6;">
+              <div><span class="code-comment">// Portfolio.js</span></div>
+              <div><span class="code-keyword">const</span> <span class="code-function">developer</span> = {</div>
+              <div style="padding-left: 1.2rem;"><span class="code-string">"name"</span>: <span class="code-string">"Joe Vincent Li"</span>,</div>
+              <div style="padding-left: 1.2rem;"><span class="code-string">"skills"</span>: [ <span class="code-string">"SQL"</span>, <span class="code-string">"Automation"</span>, <span class="code-string">"Web Dev"</span> ],</div>
+              <div style="padding-left: 1.2rem;"><span class="code-function">build</span>: () => <span class="code-string">"Reliable Business Systems"</span></div>
+              <div>};</div>
+            </div>
+            <div class="code-snippet" style="margin-top: 1rem;">
               <span class="prompt">$</span>
-              <span class="typing">build reliable business systems</span>
+              <span class="typing" id="typing-text"></span>
+              <span class="cursor" style="display: inline-block; width: 8px; background: var(--accent-strong); animation: blink 1s infinite;">|</span>
             </div>
           </div>
         </div>
